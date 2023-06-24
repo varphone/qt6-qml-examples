@@ -18,6 +18,10 @@ Pane {
         width: parent.width
 
         TabButton {
+            text: qsTr("焊缝信息")
+        }
+
+        TabButton {
             text: qsTr("机器人调试信息")
         }
 
@@ -37,24 +41,57 @@ Pane {
         anchors.top: tabBar.bottom
         currentIndex: tabBar.currentIndex
 
-        // width: parent.width
+        Pane {
+            id: seamInfoTab
 
-        Item {
+            Material.background: Material.color(Material.Grey, Material.Shade800)
+            padding: 0
+
+            Text {
+                anchors.centerIn: parent
+                color: "white"
+                font.pixelSize: 50
+                text: qsTr("TODO")
+            }
+        }
+
+        Pane {
             id: robotDebugInfoTab
+
+            Material.background: Material.color(Material.Grey, Material.Shade800)
+            padding: 0
 
             RobotDebugInfoPage {
                 anchors.fill: parent
             }
         }
 
-        Item {
+        Pane {
             id: dspDebugInfoTab
 
+            Material.background: Material.color(Material.Grey, Material.Shade800)
+            padding: 0
+
+            Text {
+                anchors.centerIn: parent
+                color: "white"
+                font.pixelSize: 50
+                text: qsTr("TODO")
+            }
         }
 
-        Item {
+        Pane {
             id: othersTab
 
+            Material.background: Material.color(Material.Grey, Material.Shade800)
+            padding: 0
+
+            Text {
+                anchors.centerIn: parent
+                color: "white"
+                font.pixelSize: 50
+                text: qsTr("TODO")
+            }
         }
     }
 }

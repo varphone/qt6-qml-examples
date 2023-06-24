@@ -5,7 +5,7 @@ import QtQuick.Dialogs
 import Qt.labs.qmlmodels
 import Examples.Extras
 
-Pane {
+Item {
     id: root
 
     function columnWidth(column) {
@@ -15,9 +15,6 @@ Pane {
             width = tableView.width - tableView.columnWidthProvider(0) - tableView.columnWidthProvider(1) - tableView.columnWidthProvider(2) - tableView.columnWidthProvider(3) - tableView.columnWidthProvider(4) - tableView.columnWidthProvider(5) - tableView.columnWidthProvider(6) - tableView.columnWidthProvider(7) - tableView.columnWidthProvider(8) - tableView.columnWidthProvider(9) - tableView.columnWidthProvider(10) - 2;
         return width;
     }
-
-    Material.background: Material.color(Material.Grey, Material.Shade800)
-    padding: 0
 
     LivePointCloud {
         id: livePointCloud
