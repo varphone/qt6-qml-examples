@@ -29,6 +29,9 @@ struct RobotDebugInfo
     /// 机器人 Z 坐标。
     float robotZ;
 
+    /// 注册元类型。
+    static void registerMetaTypes();
+
     Q_GADGET
     Q_PROPERTY(qint64 requestTs MEMBER requestTs)
     Q_PROPERTY(qint64 respondTs MEMBER respondTs)
@@ -45,6 +48,8 @@ struct RobotDebugInfo
 /// 一个代表机器人调试信息的智能指针类型。
 typedef QSharedPointer<RobotDebugInfo> RobotDebugInfoPtr;
 
-Q_DECLARE_METATYPE(RobotDebugInfo)
+Q_DECLARE_METATYPE(RobotDebugInfo);
+Q_DECLARE_METATYPE(QSharedPointer<RobotDebugInfo>);
+Q_DECLARE_OPAQUE_POINTER(RobotDebugInfo*);
 
 #endif // ROBOT_DEBUG_INFO_H

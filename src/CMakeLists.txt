@@ -23,6 +23,7 @@ qt_add_library(${PROJECT_NAME}
     PointCloudProvider.h
     PointCloudSource.cpp
     PointCloudSource.h
+    RobotDebugInfo.cpp
     RobotDebugInfo.h
     RobotDebugInfoProvider.cpp
     RobotDebugInfoProvider.h

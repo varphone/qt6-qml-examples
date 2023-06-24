@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
         "QSharedPointer<GrooveAreaInfo>");
     qRegisterMetaType<QSharedPointer<PointCloudInfo>>(
         "QSharedPointer<PointCloudInfo>");
+    RobotDebugInfo::registerMetaTypes();
 
     qmlRegisterType<GrooveAreaSource>("Examples.Extras", 1, 0,
                                       "GrooveAreaSource");
