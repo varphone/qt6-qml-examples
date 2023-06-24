@@ -6,7 +6,6 @@
 #include <QPointF>
 #include <QSharedPointer>
 
-
 /// 一个代表焊道面积数据的类型。
 struct GrooveAreaInfo
 {
@@ -25,5 +24,7 @@ struct GrooveAreaInfo
 
 /// 一个代表焊道面积数据的智能指针类型。
 typedef QSharedPointer<GrooveAreaInfo> GrooveAreaInfoPtr;
+
+Q_DECLARE_METATYPE(GrooveAreaInfo)
 
 #endif // GROOVE_AREA_INFO_H
