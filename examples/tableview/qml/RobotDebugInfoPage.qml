@@ -197,7 +197,7 @@ Pane {
                 ToolTip.visible: hovered
                 font.family: "Font Awesome 6 Free Solid"
                 font.pixelSize: 20
-                text: "\uf56e"
+                text: "\uf0c7"
 
                 onClicked: {
                     var now = new Date();
