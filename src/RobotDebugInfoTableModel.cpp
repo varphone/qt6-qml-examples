@@ -9,7 +9,7 @@
 
 const int kDeltaRole = Qt::UserRole + 1;
 const int kDeltaColorRole = Qt::UserRole + 2;
-const int kHightlightRole = Qt::UserRole + 3;
+const int kAbnormalRole = Qt::UserRole + 3;
 
 RobotDebugInfoTableModel::RobotDebugInfoTableModel(QObject* parent)
     : QAbstractTableModel(parent)
@@ -37,7 +37,7 @@ QVariant RobotDebugInfoTableModel::data(const QModelIndex& index,
         return QVariant();
 
     // Highlight the row if the seam is not found.
-    if (role == kHightlightRole) {
+    if (role == kAbnormalRole) {
         return !mRobotDebugInfos.at(index.row()).seamFound;
     }
 
@@ -114,11 +114,9 @@ QVariant RobotDebugInfoTableModel::headerData(int section,
 QHash<int, QByteArray> RobotDebugInfoTableModel::roleNames() const
 {
     return {
-        {Qt::DisplayRole, "display"},
-        {Qt::TextAlignmentRole, "textAlignment"},
-        {kDeltaRole, "delta"},
-        {kDeltaColorRole, "deltaColor"},
-        {kHightlightRole, "highlight"},
+        {Qt::DisplayRole, "display"}, {Qt::TextAlignmentRole, "textAlignment"},
+        {kDeltaRole, "delta"},        {kDeltaColorRole, "deltaColor"},
+        {kAbnormalRole, "abnormal"},
     };
 }
 

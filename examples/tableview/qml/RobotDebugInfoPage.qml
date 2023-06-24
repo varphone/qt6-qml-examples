@@ -16,6 +16,7 @@ Pane {
         return width;
     }
 
+    Material.background: Material.color(Material.Grey, Material.Shade800)
     padding: 0
 
     LivePointCloud {
@@ -28,6 +29,7 @@ Pane {
         id: tableModel
 
         capacity: 50
+        freezed: !root.visible || pauseButton.checked
         provider: livePointCloud.robotDebugInfoProvider
     }
 
@@ -62,6 +64,7 @@ Pane {
             flickable.contentY = pos;
         }
 
+        Material.background: Material.color(Material.Red, Material.Shade500)
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         anchors.margins: 0
@@ -93,7 +96,7 @@ Pane {
             required property bool selected
 
             border.width: 0
-            color: highlight ? Material.color(Material.Amber, Material.Shade200) : ((tableView.alternatingRows && row % 2 !== 0) ? tableView.palette.alternateBase : tableView.palette.base)
+            color: abnormal ? Material.color(Material.Amber, Material.Shade200) : ((tableView.alternatingRows && row % 2 !== 0) ? tableView.palette.alternateBase : tableView.palette.base)
             implicitHeight: 32
             implicitWidth: 40
 
@@ -166,10 +169,6 @@ Pane {
                 font.family: "Font Awesome 6 Free Solid"
                 font.pixelSize: 20
                 text: checked ? "\uf144" : "\uf28b"
-
-                onClicked: {
-                    tableModel.freezed = checked;
-                }
             }
 
             ToolButton {
