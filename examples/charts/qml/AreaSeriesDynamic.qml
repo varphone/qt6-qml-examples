@@ -14,6 +14,12 @@ Item {
     readonly property real outputFps: 1000.0 / minInvtervalSlider.value
     property real tickInterval: 20
 
+    PatternBrush {
+        id: patternBrush
+
+        size: Qt.size(50, 50)
+    }
+
     ColumnLayout {
         anchors.fill: parent
 
@@ -120,6 +126,18 @@ Item {
                 axisX: xValueAxis
                 axisY: yValueAxis
                 name: "Points"
+            }
+
+            ScatterSeries {
+                id: centerSeries
+
+                brush: patternBrush.brush
+                markerSize: 50
+
+                XYPoint {
+                    x: 0
+                    y: 0
+                }
             }
 
             AreaSeries {

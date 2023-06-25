@@ -9,6 +9,8 @@ include(GNUInstallDirs)
 qt_standard_project_setup()
 
 qt_add_library(${PROJECT_NAME}
+    BrushFactory.cpp
+    BrushFactory.h
     GrooveAreaInfo.h
     GrooveAreaProvider.cpp
     GrooveAreaProvider.h
@@ -18,6 +20,8 @@ qt_add_library(${PROJECT_NAME}
     LiveDataGenerator.h
     LivePointCloud.cpp
     LivePointCloud.h
+    PatternBrush.cpp
+    PatternBrush.h
     PointCloudInfo.h
     PointCloudProvider.cpp
     PointCloudProvider.h

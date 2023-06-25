@@ -1,8 +1,10 @@
 // Copyright (C) 2023 The Qt Company Ltd.
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 
+#include "BrushFactory.h"
 #include "GrooveAreaSource.h"
 #include "LivePointCloud.h"
+#include "PatternBrush.h"
 #include "PointCloudSource.h"
 
 #include <QApplication>
@@ -21,6 +23,8 @@ int main(int argc, char* argv[])
     qRegisterMetaType<QSharedPointer<PointCloudInfo>>(
         "QSharedPointer<PointCloudInfo>");
     RobotDebugInfo::registerMetaTypes();
+    BrushFactory::registerMetaTypes("Examples.Extras");
+    PatternBrush::registerMetaTypes("Examples.Extras");
 
     qmlRegisterType<GrooveAreaSource>("Examples.Extras", 1, 0,
                                       "GrooveAreaSource");
