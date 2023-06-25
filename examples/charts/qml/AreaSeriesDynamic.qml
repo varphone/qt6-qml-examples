@@ -18,6 +18,23 @@ Item {
         id: patternBrush
 
         size: Qt.size(50, 50)
+
+        onBrushChanged: brush => {
+            // 直接替换 QScatterSeries::brush 会导致内存泄漏，所以通过中间变量来替换
+            var tmp = patternBrushWrapper.brush;
+            patternBrushWrapper.brush = brush;
+            // 立即释放旧的 brush 以避免内存不断增长
+            tmp.destroy();
+        }
+    }
+
+    // 用于替换 QScatterSeries::brush 的中间变量
+    // 将其放在这里是为了给中间变量一个合适的生命周期
+    QtObject {
+        id: patternBrushWrapper
+
+        // 用于替换 QScatterSeries::brush 的中间变量
+        property var brush: patternBrush.dummyBrush()
     }
 
     ColumnLayout {
@@ -131,7 +148,7 @@ Item {
             ScatterSeries {
                 id: centerSeries
 
-                brush: patternBrush.brush
+                brush: patternBrushWrapper.brush
                 markerSize: 50
 
                 XYPoint {
