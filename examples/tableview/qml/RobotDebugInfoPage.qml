@@ -16,6 +16,29 @@ Item {
         return width;
     }
 
+    WorkerThread {
+        id: workerThread
+
+        Component.onCompleted:
+        // workerThread.start();
+        {
+        }
+
+        // QtObject {
+        // }
+
+        // QtObject {
+        // }
+
+        // QtObject {
+        //     id: obj3
+
+        // }
+
+        ThreadInfoReporter {
+        }
+    }
+
     LivePointCloud {
         id: livePointCloud
 
@@ -219,6 +242,17 @@ Item {
                 tableModel.load(selectedFile);
                 pauseButton.checked = true;
             }
+        }
+    }
+
+    Timer {
+        id: timer
+
+        interval: 1000
+        repeat: true
+
+        onTriggered: {
+            workerThread.reportThreadInfo();
         }
     }
 }

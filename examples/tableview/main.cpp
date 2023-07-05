@@ -4,6 +4,8 @@
 #include "RobotDebugInfo.h"
 #include "RobotDebugInfoProvider.h"
 #include "RobotDebugInfoTableModel.h"
+#include "ThreadInfoReporter.h"
+#include "WorkerThread.h"
 
 #include <QApplication>
 #include <QDir>
@@ -33,6 +35,9 @@ int main(int argc, char* argv[])
                                             "RobotDebugInfoProvider");
     qmlRegisterType<RobotDebugInfoTableModel>("Examples.Extras", 1, 0,
                                               "RobotDebugInfoTableModel");
+    qmlRegisterType<WorkerThread>("Examples.Extras", 1, 0, "WorkerThread");
+    qmlRegisterType<ThreadInfoReporter>("Examples.Extras", 1, 0,
+                                        "ThreadInfoReporter");
 
     QFontDatabase::addApplicationFont(
         ":/fonts/Font Awesome 6 Free-Solid-900.otf");

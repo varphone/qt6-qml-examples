@@ -33,8 +33,12 @@ qt_add_library(${PROJECT_NAME}
     RobotDebugInfoProvider.h
     RobotDebugInfoTableModel.cpp
     RobotDebugInfoTableModel.h
+    ThreadInfoReporter.cpp
+    ThreadInfoReporter.h
     Utils.cpp
     Utils.h
+    WorkerThread.cpp
+    WorkerThread.h
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
